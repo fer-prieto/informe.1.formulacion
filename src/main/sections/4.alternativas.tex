@@ -1,0 +1,60 @@
+% SECCIÓN 4: ALTERNATIVAS DE SOLUCIÓN
+\section{Alternativas de solución}
+
+% SUB-SECCIÓN
+\subsection{Alternativas planteadas}
+
+	Considerando la Figura \ref{img:figura-1} y Figura \ref{img:figura-2}, los síntomas diagnosticados donde 4 laboratorios presentan lentitud crítica (309 - 312)(0.14 Mbps en inalámbrico y 8.63 Mbps en cableado) y otros 8 laboratorios presentan fallas de asignación DHCP en su red cableada, se plantean dos alternativas:
+
+	\insertimage[\label{img:figura-1}]{figura1-conexion-inalambrica}{scale=0.8}{Evidencia de la conección inalámbrica en los laboratorios 309 - 312}
+
+	\insertimage[\label{img:figura-2}]{figura2-conexion-cableada}{scale=0.8}{Evidencia de la conección cableada (docente) en los laboratorios 309 - 312}
+
+	\begin{itemize}
+		\item \textbf{Alternativa A: reestructuración lógica y optimización de configuración}
+
+		Se enfoca en solucionar el problema del DHCP sin adquirir hardware nuevo. Consiste en rediseñar la topología lógica creando VLANs independientes para cada uno de los 12 laboratorios, reduciendo los dominios de colisión y broadcast. Se ajustaría el tiempo de concesión (lease time) del DHCP para mitigar el agotamiento de IPs por la rotación constante de alumnos de diversas facultades. Para los 4 laboratorios lentos, donde la conexión es exclusivamente inalámbrica (Wi-Fi), se aplicaría Calidad de Servicio (QoS\footnote{Conjunto de tecnologías y mecanismos de red que permiten gestionar el ancho de banda y priorizar tipos específicos de tráfico de datos. Su propósito es garantizar un nivel de rendimiento óptimo para aplicaciones críticas (mitigando la latencia, el \textit{jitter} y la pérdida de paquetes) durante situaciones de congestión en la infraestructura de red.}) en los equipos actuales para priorizar el tráfico hacia Google Workspace (Classroom, Colab, Drive).
+
+		\begin{itemize}
+			\item \textit{Ventaja}: implementación inmediata.
+			\item \textit{Desventaja}: no resuelve la limitación física si el hardware inalámbrico actual no soporta el rendimiento necesario o la densidad de estudiantes.
+		\end{itemize}
+
+		\item \textbf{Alternativa B: renovación tecnológica híbrida y segmentación}
+
+		Combina la reestructuración lógica de la Alternativa A con la actualización de hardware en los puntos críticos. Para los 8 laboratorios con problemas DHCP, se aplican VLANs y un servidor DHCP dedicado. Para los 4 laboratorios con velocidad crítica, se instalarán nuevos Access Points de alta densidad como HP ARUBA AP-505 y Switches administrables como Cisco Catalyst 9200L-24T-4X, ya usados actualmente por sus especificaciones en la escuela profesional, conectados con cableado UTP Categoría 6, garantizando ancho de banda suficiente para el 100\% de aforo en horas pico (24 alumnos por aula).
+
+		\begin{itemize}
+			\item \textit{Ventaja}: ataca la causa raíz tanto lógica (DHCP) como física (lentitud).
+			\item \textit{Desventaja}: requiere presupuesto y ventanas de instalación física.
+		\end{itemize}
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Criterios de comparación}
+
+	Para comparar ambas alternativas se usan criterios comunes:
+
+	\begin{itemize}
+		\item \textbf{Costo de implementación}: la Alternativa A no requiere adquisición de hardware nuevo; la Alternativa B requiere una inversión estimada de S/ 27,940.00 (apartado Costos y riesgos).
+		\item \textbf{Tiempo de despliegue}: la Alternativa A es de implementación inmediata; la Alternativa B depende de los tiempos de adquisición de la logística universitaria (8 a 12 semanas estimadas).
+		\item \textbf{Cobertura de causas}: la Alternativa A atiende la causa lógica (DHCP) y prioriza tráfico con QoS; la Alternativa B atiende además la causa física (lentitud) con hardware nuevo.
+		\item \textbf{Riesgo operativo}: la Alternativa B requiere ventanas de instalación física fuera del horario de clases; la Alternativa A solo intervenciones lógicas.
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Elección razonada}
+
+	Se elige la \textbf{Alternativa B: renovación tecnológica híbrida y segmentación} como solución principal, porque es la única que ataca simultáneamente la causa lógica (fallas de asignación DHCP en los 8 laboratorios) y la causa física (lentitud crítica en los 4 laboratorios inalámbricos). El presupuesto del apartado Costos y riesgos está elaborado sobre esta base y los equipos propuestos ya se utilizan en la escuela profesional, lo que reduce el riesgo de compatibilidad. La Alternativa A se mantiene como plan de contingencia si la adquisición de equipos se retrasara, pues permite mitigar el problema de DHCP sin comprar hardware.
+
+	La elección es preliminar y queda sujeta a los resultados de la Fase 1 de diagnóstico, que debe confirmar que los problemas observados existen y que sus causas corresponden a las tratadas por la alternativa elegida.
+
+% SUB-SECCIÓN
+\subsection{Limitaciones}
+
+	\begin{itemize}
+		\item La decisión se toma con evidencias en estado D (declaraciones sin fechas ni mediciones); el diagnóstico de la Fase 1 puede modificar el alcance de la solución.
+		\item La Alternativa B depende de los tiempos de adquisición de la logística universitaria.
+		\item No se han definido todavía el periodo del diagnóstico ni los umbrales de servicio que permitirán calificar la lentitud o los cortes.
+		\item El detalle del cuarto nivel del cuadro de puntos de red está incompleto y debe cotejarse antes de dimensionar la intervención física.
+	\end{itemize}

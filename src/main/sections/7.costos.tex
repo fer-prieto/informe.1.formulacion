@@ -1,0 +1,59 @@
+% SECCIÓN 7: COSTOS Y RIESGOS
+\section{Costos y riesgos}
+
+% SUB-SECCIÓN
+\subsection{Presupuesto estimado (basado en la Alternativa B)}
+
+	\textit{La UNSAAC provee el enlace troncal de fibra óptica, la salida a internet de banda ancha y el suministro de energía estándar en los laboratorios. (Se ha optimizado el diseño retirando el servidor físico innecesario y trasladando el rol DHCP al Switch L3).}
+
+	\begin{table}[H]
+		\centering
+		\caption{Presupuesto estimado (basado en la Alternativa B).}
+		\begin{tabular}{T{2.2cm}T{5.3cm}C{1.2cm}C{2.3cm}C{2.3cm}}
+			\hline
+			\textbf{Ítem} & \textbf{Descripción} & \textbf{Cant.} & \textbf{Precio Unitario (S/)} & \textbf{Subtotal (S/)} \bigstrut\\
+			\hline
+			1. Hardware de Red & Switch Administrable Cisco Catalyst 9200L-24T-4X & 4 & 3,400.00 & 13,600.00 \\
+			2. Equipos Inalámbricos & Access Point HP ARUBA AP-505 de alta densidad & 4 & 1,000.00 & 4,000.00 \\
+			3. Licenciamiento & Licencias de gestión y soporte base para equipos Cisco/Aruba & 1 & 2,500.00 & 2,500.00 \\
+			4. Materiales & Bobina Cable UTP Cat 6 LSFRZH (305m), patch cords, rosetas, canaletas y patch panels de 24 puertos & 1 & 1,800.00 & 1,800.00 \\
+			5. Servicios & Mano de obra (instalación física, canalización y configuración lógica) & 1 & 3,500.00 & 3,500.00 \\
+			6. Imprevistos & Gastos de contingencia logística y técnica (Aprox. 10\%) & 1 & 2,540.00 & 2,540.00 \\
+			\hline
+			\textbf{TOTAL ESTIMADO} & & & & \textbf{S/ 27,940.00} \bigstrut\\
+			\hline
+		\end{tabular}
+		\label{tab:presupuesto}
+	\end{table}
+
+	\textbf{Fuente, fecha y supuestos del presupuesto.} \textit{[PENDIENTE: indicar la fuente y la fecha de las cotizaciones de cada ítem.]} Los precios están expresados en soles e incluyen un 10\% de imprevistos; se asume que el enlace troncal, la salida a internet y la energía son provistos por la UNSAAC.
+
+% SUB-SECCIÓN
+\subsection{Costos recurrentes}
+
+	El proyecto no contempla costos recurrentes a su cargo: el enlace de internet de banda ancha y el suministro de energía son provistos por la UNSAAC. \textit{[PENDIENTE: confirmar si las licencias de gestión y soporte de los equipos Cisco/Aruba tienen costo anual de renovación e incluirlo en el TCO.]}
+
+% SUB-SECCIÓN
+\subsection{Horizonte TCO}
+
+	\textit{[PENDIENTE: definir el horizonte de análisis del costo total de propiedad (TCO), por ejemplo 3 años, e incorporar los costos de operación y renovación correspondientes.]}
+
+% SUB-SECCIÓN
+\subsection{Matriz de riesgos}
+
+	\captionof{table}{Matriz de riesgos.} \label{tab:riesgos}
+
+	\begin{longtable}{C{1cm}T{2.2cm}T{2.8cm}T{2.8cm}T{4.4cm}}
+		\hline
+		\textbf{ID} & \textbf{Causa} & \textbf{Evento} & \textbf{Efecto} & \textbf{Respuesta / Mitigación} \bigstrut\\
+		\hline
+		\endhead
+		R-01 & Burocracia institucional & Retrasos en el área de Logística para la emisión de las órdenes de compra. & Incumplimiento del cronograma general; los equipos no llegan a tiempo para el semestre académico. & Iniciar los requerimientos con especificaciones técnicas cerradas, estandarizadas y cotizaciones previas desde la Fase 0. \\
+		R-02 & Cuello de botella superior & El enlace troncal de fibra de la UNSAAC o la salida a internet están saturados en horas pico. & Los nuevos equipos funcionarán rápido localmente, pero la navegación a internet seguirá lenta. & Ejecutar pruebas de estrés al enlace principal de la universidad durante la Fase 1. Escalar requerimiento de ancho de banda a la oficina de TI central si es necesario. \\
+		R-03 & Confusión de síntomas & Adquisición de hardware físico para aulas donde el problema era netamente lógico. & Gasto innecesario de presupuesto sin solucionar las caídas reales de conexión por DHCP. & Completar estrictamente la Fase 1 de diagnóstico y aislar el problema en los 8 laboratorios cableados antes de aprobar compras. \\
+		R-04 & Tiempos de intervención & Ejecución de reinicios o tendido de cables durante el horario de 09:00 a 11:00 o 16:00 a 18:00. & Interrupción crítica del servicio que deja a estudiantes de toda la universidad sin acceso a clases. & Restringir contractualmente las ventanas de mantenimiento a horarios nocturnos (20:00 a 06:00) o fines de semana. \\
+		R-05 & Errores de segmentación & Configuración incorrecta de las reglas de ruteo en las nuevas VLANs. & Pérdida de visibilidad de los servidores locales de la EPIIS para alumnos de especialidad. & Validar reglas de ruteo inter-VLAN y realizar pruebas de acceso a servicios internos por SSH/HTTP antes del paso a producción. \\
+		R-06 & Limitación de infraestructura & Puertos físicos o espacio insuficiente en el cuarto de telecomunicaciones / gabinete principal. & Retraso en la instalación de los nuevos puntos de red para los 4 laboratorios críticos. & Realizar un inventario físico de puertos y capacidad del rack en la Fase 1, e incluir \textit{patch panels} y organizadores en la compra de materiales. \\
+		R-07 & Disponibilidad de stock & Retraso en la importación de equipos Cisco/Aruba. & Extensión de los problemas de lentitud a lo largo de todo el semestre académico. & Solicitar cotizaciones con stock local asegurado o aprobar equipos de características equivalentes en la etapa de licitación. \\
+		\hline
+	\end{longtable}

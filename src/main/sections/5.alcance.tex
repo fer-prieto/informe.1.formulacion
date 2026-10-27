@@ -1,0 +1,90 @@
+% SECCIÓN 5: ALCANCE Y REQUISITOS
+\section{Alcance y requisitos}
+
+% SUB-SECCIÓN
+\subsection{Alcance del proyecto}
+
+	La intervención se limitará a 12 laboratorios de la EPIIS en la ciudad universitaria de Perayoc. De estos, 4 laboratorios recibirán intervención física y lógica para resolver problemas de lentitud de red, y 8 laboratorios recibirán exclusivamente intervención lógica para solucionar la caída del servicio DHCP en sus conexiones cableadas.
+
+% SUB-SECCIÓN
+\subsection{Perfil de carga y usuarios}
+
+	\begin{itemize}
+		\item \textbf{Capacidad por aula}: hasta 24 alumnos, operando al 100\% de capacidad en las horas pico (09:00 a 11:00 y 16:00 a 18:00). La ocupación en otros horarios varía entre el 50\% y el 70\%.
+		\item \textbf{Usuarios principales}: estudiantes de diversas escuelas profesionales matriculados en el curso general \quotes{Pensamiento Computacional e Inteligencia Artificial}, demandando acceso a Google Classroom, Google Colab y Google Drive. Adicionalmente, estudiantes de Informática y Sistemas requiriendo acceso a la nube, desarrollo, bases de datos y servidores locales según sus mallas curriculares vigentes.
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Entregables y exclusiones}
+
+	\textbf{Entregables.}
+
+	\begin{itemize}
+		\item Rediseño lógico implementado: VLANs por laboratorio y servicio DHCP optimizado (Capa 3) en los 8 laboratorios con fallas de asignación.
+		\item Despliegue físico en los 4 laboratorios críticos: Access Points HP ARUBA AP-505 y switches Cisco Catalyst 9200L-24T-4X con cableado UTP Categoría 6.
+		\item Pruebas de aceptación ejecutadas: RF-01 y RF-02 con aforo al 100\% y validación de acceso a servidores locales (RF-03).
+		\item Documentación y manuales de la solución entregados.
+	\end{itemize}
+
+	\textbf{Exclusiones.}
+
+	\begin{itemize}
+		\item Los ambientes del pabellón distintos de los 12 laboratorios indicados.
+		\item El enlace troncal de fibra óptica y la salida a internet de banda ancha, provistos por la UNSAAC.
+		\item Las intervenciones sobre redes de datos móviles personales, que no forman parte de la red institucional evaluada.
+		\item La ampliación de capacidad del enlace de la universidad; en caso de saturación se escalará a la oficina de TI central (ver riesgo R-02).
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{EDT/WBS resumida}
+
+	La estructura de desglose del trabajo sigue las fases del cronograma del apartado Viabilidad y cronograma:
+
+	\begin{itemize}
+		\item \textbf{1.0 Procesos de adquisición}: términos de referencia, cotizaciones, licitación, órdenes de compra y recepción de equipos.
+		\item \textbf{2.0 Diagnóstico técnico}: monitoreo en horas pico, aislamiento del problema DHCP, inventario de puertos y prueba de estrés del enlace.
+		\item \textbf{3.0 Rediseño lógico}: VLANs, servicio DHCP optimizado (Capa 3), ajuste de ruteo y PortFast.
+		\item \textbf{4.0 Despliegue físico}: canalización e instalación de Access Points y switches en los 4 laboratorios críticos.
+		\item \textbf{5.0 Pruebas y cierre}: pruebas de estrés al 100\%, validación de servidores locales y entrega de documentación y manuales.
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Requisitos funcionales}
+
+	\begin{itemize}
+		\item \textbf{RF-01 (Asignación IP)}: la red debe asignar una dirección IPv4 válida (DHCP) en menos de 5 segundos al conectar un equipo por cable en los 8 laboratorios afectados.
+		\begin{itemize}
+			\item \textit{Prueba}: conectar 24 equipos simultáneamente en un laboratorio y verificar la concesión IP y navegación exitosa.
+		\end{itemize}
+		\item \textbf{RF-02 (Conectividad inalámbrica)}: la red Wi-Fi en los 4 laboratorios críticos debe superar los anchos de banda actuales de 0.14 Mbps, permitiendo la ejecución fluida de entornos como Google Colab y carga de archivos a Drive.
+		\begin{itemize}
+			\item \textit{Prueba}: test de velocidad de subida/bajada y ejecución de un script de prueba en Google Colab con 24 usuarios concurrentes vía Wi-Fi.
+		\end{itemize}
+		\item \textbf{RF-03 (Acceso a servicios locales)}: la segmentación de red no debe impedir que los estudiantes de EPIIS accedan a los servidores locales requeridos para cursos de especialidad.
+		\begin{itemize}
+			\item \textit{Prueba}: ping y conexión exitosa por SSH/HTTP a los servidores de la facultad desde las VLANs de los laboratorios.
+		\end{itemize}
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Requisitos no funcionales}
+
+	\begin{itemize}
+		\item \textbf{RNF-01 (Disponibilidad)}: las intervenciones físicas y los reinicios de red se ejecutan fuera del horario de clases pico (después de las 20:00 horas o fines de semana), para no interrumpir el servicio.
+		\item \textbf{RNF-02 (Capacidad)}: la solución debe soportar 24 usuarios concurrentes por aula al 100\% de ocupación en horas pico.
+		\item \textbf{RNF-03 (Compatibilidad)}: los equipos deben ser compatibles con los estándares ya utilizados en la escuela profesional.
+		\item \textbf{RNF-04 (Segmentación segura)}: las VLANs no deben impedir el acceso de los estudiantes de EPIIS a los servidores locales de especialidad.
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Criterios de aceptación iniciales}
+
+	Los requisitos funcionales se considerarán aceptados cuando se cumplan sus pruebas asociadas:
+
+	\begin{itemize}
+		\item \textbf{RF-01}: 24 equipos conectados simultáneamente por cable obtienen una dirección IPv4 por DHCP en menos de 5 segundos y navegan correctamente.
+		\item \textbf{RF-02}: las pruebas de velocidad de subida y bajada superan los 0.14 Mbps actuales y un script de prueba en Google Colab se ejecuta con 24 usuarios concurrentes vía Wi-Fi.
+		\item \textbf{RF-03}: se obtiene respuesta de ping y conexión exitosa por SSH/HTTP a los servidores de la facultad desde las VLANs de los laboratorios.
+	\end{itemize}
+
+	Los umbrales definitivos de velocidad y disponibilidad se fijarán después del diagnóstico de la Fase 1. \textit{[PENDIENTE: definir los umbrales objetivo de velocidad, latencia y disponibilidad.]}

@@ -1,0 +1,173 @@
+% SECCIÓN 2: PLANTEAMIENTO DEL PROBLEMA
+\section{Planteamiento del problema}
+
+% SUB-SECCIÓN
+\subsection{Problema central}
+
+	Las afirmaciones de este apartado se conservan según su estado: \textbf{D} = declarado por una persona o en el material del equipo, sin que eso implique verificación; \textbf{H} = hipótesis pendiente de contraste; \textbf{S} = solución anticipada, fuera del árbol del problema.
+
+	\textbf{Solución anticipada que aparece en la propuesta (S).} Mejora e implementación de infraestructura de red para el pabellón completo: instalación de puntos de red y acceso Wi-Fi, automatización del direccionamiento IP en laboratorios y eventual ajuste de capacidad o topología. La propuesta incluye las cantidades resumidas por nivel indicadas en los antecedentes; verificar el desglose del cuarto nivel.
+
+	\textbf{Situaciones observadas o reportadas y quién las reporta.}
+
+	\begin{itemize}
+		\item Se declaró que en algunas aulas no aparece la señal Wi-Fi; no se entregó registro con aula, fecha u hora.
+		\item Estudiantes, docentes y personal administrativo reportaron cortes; no se proporcionaron actas ni un conteo de incidentes.
+		\item El Ing. Ademir Portillo fue señalado como fuente de la declaración de que en laboratorios se requiere configurar la IP manualmente; faltan fecha y registro de la entrevista.
+		\item Se mencionó lentitud, pero la lentitud en datos móviles personales no demuestra lentitud de la red institucional. No hay mediciones de esta última.
+	\end{itemize}
+
+	Estas afirmaciones se conservan como \textbf{D (declaradas)}, no como hechos medidos ni como relaciones causales demostradas.
+
+	\textbf{Problema central candidato.} \textit{Interrupciones, lentitud e impedimentos de acceso a Internet durante actividades académicas de estudiantes y docentes en los ambientes del pabellón de la EPIIS, en el periodo que delimite el diagnóstico.}
+
+	Es un candidato pendiente de constatación. Si los registros muestran que falta de señal, lentitud, cortes y configuración manual son problemas distintos, el equipo dividirá este enunciado en problemas centrales más específicos.
+
+	\textbf{Cómo se observará o medirá la condición.} Registrar cada episodio con ambiente, fecha y hora, actividad afectada, síntoma, dispositivo y fuente. Separar: red no visible; red visible sin navegación; lentitud; corte; necesidad de configurar IP manualmente. Medir cobertura y disponibilidad por ambiente, pruebas de conectividad y velocidad en horas punta y valle, cortes y su duración, usuarios concurrentes y asignación DHCP en laboratorios. Definir antes de analizar los resultados qué umbral o requisito del servicio permitirá llamar \quotes{lento} o \quotes{interrumpido}; ese referente todavía está pendiente.
+
+% SUB-SECCIÓN
+\subsection{Evidencias con fuentes y fechas}
+
+	\begin{table}[H]
+		\centering
+		\caption{Respaldo disponible del problema.}
+		\begin{tabular}{T{6.4cm}T{8.4cm}}
+			\hline
+			\textbf{Fuente declarada} & \textbf{Qué demuestra y qué no demuestra} \bigstrut\\
+			\hline
+			E1. Declaración de aulas sin señal Wi-Fi; observación sin registro. Fecha, hora y ambientes exactos: pendientes. & D: se reportó percepción de falta de señal. No demuestra frecuencia, cobertura medida, magnitud ni causa. \\
+			E2. Quejas de estudiantes, docentes y personal administrativo por cortes. Fechas, actas y localizador: pendientes. & D: hay reclamos reportados. No cuantifica incidentes ni identifica su origen. \\
+			E3. Declaración atribuida al Ing. Ademir Portillo sobre el uso obligatorio de IP manual en laboratorios. Fecha y registro: pendientes. & D: se reportó ese requisito. No demuestra que DHCP esté ausente o mal configurado, ni por qué se requiere IP manual. \\
+			E4. Referencia a lentitud en datos móviles particulares. Fecha y fuente específica: pendientes. & D: se mencionó el uso de una red particular. No demuestra lentitud de la red institucional. \\
+			\hline
+		\end{tabular}
+		\label{tab:evidencias}
+	\end{table}
+
+% SUB-SECCIÓN
+\subsection{Población y ámbito afectado}
+
+	\textbf{Usuarios.} Estudiantes y docentes de la EPIIS; el personal administrativo también figura entre quienes reportan problemas y debe incluirse en la validación.
+
+	\textbf{Lugar.} Todo el pabellón de la EPIIS, niveles 1 a 4. El cuadro compartido incluye aulas 101--108 y 201--206; laboratorios 111, 207--208, 301--306, 309--312 y 419; oficinas y secretarías; biblioteca; centro federado; cubículos; auditorio; salas de estudio, docentes y exposiciones; y pasadizos o pasillos. Verificar el inventario exacto de ambientes contra el plano y el TDR.
+
+	\textbf{Periodo del diagnóstico.} Pendiente de delimitar; no se proporcionaron fechas de observación.
+
+% SUB-SECCIÓN
+\subsection{Árbol de causas y efectos}
+
+	Las causas y flechas siguientes son candidatas. Que un síntoma haya sido declarado no prueba que la explicación propuesta lo haya producido.
+
+	\textbf{Causas directas candidatas.}
+
+	\begin{table}[H]
+		\centering
+		\caption{Causas directas candidatas.}
+		\begin{tabular}{C{1.2cm}T{4.5cm}T{8.8cm}}
+			\hline
+			\textbf{ID} & \textbf{Condición que podría contribuir directamente al problema} & \textbf{Mecanismo propuesto y estado} \bigstrut\\
+			\hline
+			CD1 & Wi-Fi no visible o sin acceso utilizable en algunas aulas reportadas. & Sin conexión disponible, una actividad que requiere Internet podría detenerse. D como reporte; ubicación y existencia pendientes de verificar. \\
+			CD2 & Necesidad reportada de configurar la IP manualmente en laboratorios. & La configuración manual añade pasos y podría demorar o impedir el acceso durante una actividad. D como declaración; efecto pendiente de comprobar. \\
+			CD3 & Cortes de conexión reportados durante el uso. & La pérdida de conexión podría interrumpir tareas y obligar a reconectar. D como queja, sin registro ni frecuencia. \\
+			CD4 & Acceso institucional descrito como lento. & Una respuesta lenta podría demorar tareas en línea. Declaración sin medición; la lentitud de datos móviles no la verifica. \\
+			\hline
+		\end{tabular}
+		\label{tab:causas-directas}
+	\end{table}
+
+	\textbf{Causas indirectas candidatas.}
+
+	\begin{table}[H]
+		\centering
+		\caption{Causas indirectas candidatas.}
+		\begin{tabular}{C{1.2cm}T{4.7cm}T{8.6cm}}
+			\hline
+			\textbf{ID} & \textbf{Condición que podría explicar una causa directa} & \textbf{Causa directa que explicaría y mecanismo; estado} \bigstrut\\
+			\hline
+			CI1 & Cobertura insuficiente o puntos de acceso mal ubicados o apagados. & Podría explicar CD1 si deja zonas sin señal. H; verificar cobertura y estado de los equipos. \\
+			CI2 & DHCP ausente o mal configurado en laboratorios. & Podría explicar CD2 si los dispositivos no reciben automáticamente una dirección IP válida. H; revisar configuración y concesiones. \\
+			CI3 & Falla de autenticación o del enlace. & Podría explicar CD3 si impide mantener la sesión de red. H; contrastar con registros sincronizados del incidente. \\
+			CI4 & Congestión o capacidad de ancho de banda insuficiente en horas punta. & Podría explicar CD4 si el rendimiento cae con mayor concurrencia. H; comparar mediciones y cantidad de usuarios. \\
+			\hline
+		\end{tabular}
+		\label{tab:causas-indirectas}
+	\end{table}
+
+	\textbf{Explicaciones rivales por comprobar.} Configuración o falla del dispositivo del usuario; cableado antiguo; interferencia; autenticación; conexión del participante o proveedor externo; y diferencias entre la red institucional y los datos móviles personales.
+
+	\textbf{Observaciones que debilitarían las hipótesis.} Señal y punto de acceso operativos en el aula y hora reportadas; DHCP que entrega direcciones válidas cuando ocurre el problema; registros de enlace o autenticación normales durante un corte; o lentitud también fuera de horas punta y con pocos usuarios. Si aparece alguna de estas observaciones, revisar la rama y sus explicaciones rivales.
+
+	\textbf{Efectos candidatos.}
+
+	\begin{table}[H]
+		\centering
+		\caption{Efectos candidatos del árbol del problema.}
+		\begin{tabular}{C{1.6cm}T{5.1cm}T{7.8cm}}
+			\hline
+			\textbf{ID y nivel} & \textbf{Condición resultante candidata} & \textbf{De qué nodo se deriva y cómo; estado} \bigstrut\\
+			\hline
+			ED1 Directo & Tareas académicas en línea demoradas o pendientes, por ejemplo prácticas, evaluaciones o actividades de clase que requieren Internet. & Podrían derivarse de la interrupción, lentitud o impedimento de acceso. H; no se aportaron actividades ni fechas que lo documenten. \\
+			EI1 Indirecto & Menor continuidad de las actividades de aprendizaje mediadas por Internet y posible afectación de la experiencia o calidad percibida del aprendizaje. & Podría producirse si los retrasos o tareas pendientes son repetidos y afectan el desarrollo de las actividades. H; no hay mediciones ni evidencia de impacto en aprendizaje. \\
+			\hline
+		\end{tabular}
+		\label{tab:efectos}
+	\end{table}
+
+	\textbf{Beneficio esperado de la propuesta, no resultado demostrado.} Si el diagnóstico confirma el problema y se implementa una solución eficaz, un acceso más continuo podría facilitar clases y prácticas y contribuir a una mejor experiencia de aprendizaje. No se presenta como efecto observado ni como causalidad comprobada.
+
+	\textbf{Árbol V1 del proyecto.} \textit{[PENDIENTE: incluir la imagen del árbol del problema V1 (archivo: Pasted image 20261014184149.png).]}
+
+	% Una vez agregada la imagen a la carpeta img/, descomentar:
+	% \insertimage[\label{img:arbol-problema}]{arbol-problema-v1}{scale=0.6}{Árbol del problema V1.}
+
+	\textbf{Versión y fecha.} V1, 14/10/2026. El periodo de observación sigue pendiente. \textbf{S} (instalación o mejora de red, puntos de red, Wi-Fi, DHCP y ajustes de capacidad o topología) se registra fuera del árbol. Todas las flechas están en estado H; los nodos declarados no están por ello documentados.
+
+% SUB-SECCIÓN
+\subsection{Contrastación de relaciones causales prioritarias}
+
+% SUB-SUB-SECCIÓN
+\subsubsection{Vínculo 1: señal Wi-Fi y acceso interrumpido}
+
+	\textbf{Código y relación}: \textbf{F2 --- CD1 (Wi-Fi no visible o no utilizable en el ambiente) $\rightarrow$ P1 (impedimento o interrupción del acceso durante una actividad académica).}
+
+	\textbf{Mecanismo y condición}: si en un ambiente y momento determinados no hay señal o acceso utilizable, un dispositivo que depende de esa red podría no conectarse y la actividad académica que requiere Internet podría detenerse. No se espera necesariamente esa consecuencia si existe una alternativa funcional o el problema se limita a un dispositivo.
+
+	\textbf{Evidencia de A, de B y del vínculo}: A: E1, declaración de aulas sin señal, sin ambiente, fecha ni medición registrados. B: problema candidato construido a partir de los reportes; no hay registro fechado de una actividad interrumpida. El vínculo entre ambos no está medido. \textbf{Estado: H.}
+
+	\textbf{Explicación rival o evidencia contradictoria}: falla o configuración del dispositivo; SSID o autenticación; punto de acceso apagado; interferencia; o caída del enlace externo. Señal y acceso funcionales en el aula y momento reportados debilitarían esta relación.
+
+	\textbf{Dato o prueba diagnóstica}: registrar aula, fecha y hora, tarea y dispositivo; revisar estado del AP y medir si varios dispositivos detectan y usan la red; anotar si la tarea se detuvo. Apoyaría la hipótesis una falta de señal o acceso coincidente con la interrupción en varios dispositivos y sin una explicación rival suficiente. La debilitaría que la red funcione y el fallo ocurra solo en un dispositivo.
+
+	\textbf{Estado, límites, responsable y fecha}: H, pendiente de comprobación; el reporte disponible no permite estimar frecuencia ni atribuir causa. Responsable y fecha por asignar en Notion.
+
+% SUB-SUB-SECCIÓN
+\subsubsection{Vínculo 2: IP manual y acceso dificultoso}
+
+	\textbf{Código y relación}: \textbf{F4 --- CD2 (necesidad reportada de configurar IP manualmente en laboratorios) $\rightarrow$ P1 (dificultad o demora para acceder a Internet durante una actividad).}
+
+	\textbf{Mecanismo y condición}: si el equipo no obtiene automáticamente una dirección IP válida y se necesita configurarla manualmente, el paso adicional podría retrasar o impedir el acceso. La relación se espera solo si esa configuración coincide con una demora o impedimento en una actividad concreta.
+
+	\textbf{Evidencia de A, de B y del vínculo}: A: E3, declaración atribuida al Ing. Ademir Portillo; fecha, registro y laboratorios específicos pendientes. B: el problema es candidato y no se entregaron episodios fechados. La declaración no demuestra por sí sola que DHCP sea la causa ni que haya ocurrido una demora académica. \textbf{Estado del vínculo: H.}
+
+	\textbf{Explicación rival o evidencia contradictoria}: configuración del dispositivo, política de acceso del laboratorio u otra restricción. Si DHCP entrega una dirección válida durante el episodio o la configuración manual no cambia el acceso, se debilitaría la hipótesis de que DHCP explica la dificultad.
+
+	\textbf{Dato o prueba diagnóstica}: revisar configuración y concesiones DHCP; probar varios dispositivos en los laboratorios; registrar si reciben IP automáticamente, cuánto tarda el acceso y qué actividad se ve afectada; comparar con un caso en que la conexión funcione. Apoyaría la hipótesis que no se asigne una IP válida y que la configuración manual restablezca el acceso en el episodio. La debilitaría que DHCP funcione o que el problema persista sin relación con la IP.
+
+	\textbf{Estado, límites, responsable y fecha}: H, pendiente de comprobación; existe una declaración, no un registro técnico ni una prueba del vínculo causal. Responsable y fecha por asignar en Notion.
+
+% SUB-SECCIÓN
+\subsection{Vacíos y supuestos}
+
+	\textbf{Estado del problema y dato principal que falta.} Problema candidato sustentado por declaraciones, todavía no documentado mediante registros fechados. Faltan episodios observables por ambiente, periodo, tarea afectada y síntoma, además de mediciones de la red institucional.
+
+	\textbf{Responsable de organizar los registros.} Pendiente de asignar en Notion. Confirmar si el líder asumirá esta función.
+
+	\textbf{Supuestos de trabajo.}
+
+	\begin{itemize}
+		\item Las declaraciones se tratan como \textbf{D} y no como hechos medidos; las relaciones causales se tratan como \textbf{H} hasta su contrastación.
+		\item La solución anticipada \textbf{S} se mantiene fuera del árbol del problema y no se asume necesaria.
+		\item El problema central es candidato y podrá dividirse en enunciados más específicos si los registros lo justifican.
+		\item El periodo del diagnóstico y los responsables de los registros quedan pendientes de definición.
+	\end{itemize}

@@ -1,0 +1,44 @@
+% SECCIÓN 6: VIABILIDAD Y CRONOGRAMA
+\section{Viabilidad y cronograma}
+
+% SUB-SECCIÓN
+\subsection{Análisis de viabilidad}
+
+	El proyecto es \textbf{técnicamente viable} dado que la infraestructura base del pabellón soporta adiciones de cableado y los laboratorios cuentan con gabinetes de comunicaciones en buen estado. A nivel \textbf{operativo}, las intervenciones físicas y reinicios de red se programarán estrictamente en horarios de menor uso (después de las 20:00 horas o fines de semana) para no afectar el alto tránsito de alumnos.
+
+	A nivel \textbf{administrativo}, la viabilidad depende de la agilidad del área de logística de la universidad. Por ello, el cronograma contempla una fase previa de adquisición adaptada a los tiempos de la Ley de Contrataciones del Estado, garantizando que el equipo técnico no asuma retrasos logísticos fuera de su control. Asimismo, se ha validado que los equipos a adquirir son compatibles con los estándares ya utilizados en la escuela profesional.
+
+	A nivel \textbf{económico}, la inversión inicial estimada asciende a S/ 27,940.00 (apartado Costos y riesgos), sin costos recurrentes adicionales a cargo del proyecto, ya que la UNSAAC provee el enlace troncal de fibra óptica, la salida a internet y el suministro de energía de los laboratorios. \textit{[PENDIENTE: confirmar los costos recurrentes de licenciamiento y soporte de los equipos, y definir el horizonte TCO.]}
+
+% SUB-SECCIÓN
+\subsection{Condiciones pendientes}
+
+	\begin{itemize}
+		\item Culminar el diagnóstico técnico de la Fase 1 y documentar las evidencias con fechas por ambiente.
+		\item Confirmar el inventario exacto de ambientes contra el plano y el TDR.
+		\item Delimitar el periodo del diagnóstico. \textit{[PENDIENTE: definir el periodo de observación.]}
+		\item Aprobar el presupuesto y completar la adquisición de equipos según los tiempos de logística (8 a 12 semanas).
+		\item Asignar en Notion a los responsables de los registros del diagnóstico. \textit{[PENDIENTE: confirmar si el líder asumirá esta función.]}
+	\end{itemize}
+
+% SUB-SECCIÓN
+\subsection{Cronograma de ejecución}
+
+	\textit{Los tiempos de la Fase 0 son estimaciones basadas en procesos administrativos estándar, mientras que las Fases 1 a 4 corresponden a la ejecución técnica directa una vez entregado el equipamiento.}
+
+	\begin{table}[H]
+		\centering
+		\caption{Cronograma de ejecución.}
+		\begin{tabular}{T{3cm}T{6.4cm}C{1.6cm}T{2.8cm}}
+			\hline
+			\textbf{Hito} & \textbf{Descripción de Actividades} & \textbf{Duración} & \textbf{Responsable} \bigstrut\\
+			\hline
+			\textbf{Fase 0: Procesos de Adquisición} & Elaboración de términos de referencia (TDR), cotizaciones, licitación, emisión de órdenes de compra y recepción de equipos en almacén. & 8 a 12 semanas & Logística / Equipo Formulador \\
+			\textbf{Fase 1: Diagnóstico Técnico} & Monitoreo del tráfico en horas pico, aislamiento del problema DHCP, inventario físico de puertos en rack y prueba de estrés al enlace principal de la UNSAAC. & 1 semana & Soporte EPIIS / Ing. de Redes \\
+			\textbf{Fase 2: Rediseño Lógico} & Configuración de VLANs, despliegue del servicio DHCP optimizado (Capa 3), ajuste de ruteo y habilitación de PortFast en puertos de usuario para agilizar la asignación IP. & 1.5 semanas & Ingeniero de Redes \\
+			\textbf{Fase 3: Despliegue Físico} & Canalización, instalación de Access Points (Aruba) y Switches (Cisco) en los 4 laboratorios con velocidad crítica. Horario nocturno. & 2 semanas & Contratista / Soporte Técnico \\
+			\textbf{Fase 4: Pruebas y Cierre} & Pruebas de estrés con aforo al 100\% (RF-01 y RF-02), validación de acceso a servidores locales, entrega de documentación y manuales. & 1 semana & Equipo Formulador \\
+			\hline
+		\end{tabular}
+		\label{tab:cronograma}
+	\end{table}
