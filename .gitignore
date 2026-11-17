@@ -46,12 +46,6 @@ informe.pdf
 # Logs
 log.txt
 
-# Distribución
-dist/img
-dist/src
-dist/main.tex
-dist/example.tex
-dist/template_config.tex
 
 # Archivos temporales
 *.xlsx
