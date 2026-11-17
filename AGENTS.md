@@ -28,6 +28,7 @@ main.tex                      Metadatos (título, autores, curso, logos) y orden
 Makefile                      Pipeline de compilación
 library.bib                   Fuentes bibliográficas del informe
 natnumurl.bst                 Estilo bibtex numerado con URL (el que usa el documento)
+data-adicional/               Borradores de la V2 (ver su propio AGENTS.md)
 img/                          Imágenes (defaultimagefolder del template)
   figura1-conexion-inalambrica.png
   figura2-conexion-cableada.png
@@ -69,6 +70,9 @@ LICENSE                       Licencia MIT del template original
    comentario `% SECCIÓN N: ...` y usa `\section`, `\subsection`.
 4. `library.bib`: nuevas referencias; se citan con `\cite{clave}`.
 5. `img/`: imágenes nuevas; se referencian por nombre sin la carpeta.
+6. `data-adicional/`: borradores de la V2 — requisitos replanteados, plan de
+   involucramiento, instrumento de entrevista y trazabilidad. No se enlaza desde
+   `main.tex`; su propio `AGENTS.md` explica qué es y en qué se basa.
 
 ## Configuración (`src/config.tex`)
 
